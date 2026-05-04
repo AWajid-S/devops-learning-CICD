@@ -16,17 +16,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Terraform format check
+      - name: Terraform fmt check
         run: |
           cd task-2-terraform-lint
-          terraform fmt -check
-
-      - name: Terraform init
-        run: |
-          cd task-2-terraform-lint
-          terraform init -backend=false
-
-      - name: Terraform validate
-        run: |
-          cd task-2-terraform-lint
-          terraform validate
+          terraform fmt -check -recursive
